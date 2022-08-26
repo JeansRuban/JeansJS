@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model</title>
+    <style>
+/*
+        html {
+            box-sizing: border-box;
+        }
+        
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+*/
+        body {
+            background-color: #fff;
+            color: #333;
+            font: 1.2em / 1.5 Helvetica Neue, Helvetica, Arial, sans-serif;
+            padding: 1em;
+            margin: 0;
+        }
+      
+        .box {
+            margin: 40px;
+            border: 5px solid rebeccapurple;
+            padding: 40px;
+            width: 300px;
+            height: 150px;
+            background-color: lightgray;
+        }
+
+        .alternate {
+            box-sizing: border-box;
+            width: 390px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="box">I use the standard box model.</div>
+    <div class="box alternate">I use the alternate box model.</div>
+
+</body>
+</html>
