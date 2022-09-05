@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage API</title>
+    <style>
+                html {
+                    box-sizing: border-box;
+                }
+
+                div {
+                    float: left ;
+                    align-content: center;
+                }
+
+                .storage {
+                    margin: 5px;
+                    border: 5px solid rebeccapurple;
+                    padding: 40px;
+                    width: 400px;
+                    height: auto;
+                    background-color: lightgray;
+                }
+
+                button {
+                    display: inline-block;
+                    padding: 15px 25px;
+                    font-size: 24px;
+                    cursor: pointer;
+                    text-align: center;
+                    text-decoration: none;
+                    outline: none;
+                    color: #fff;
+                    background-color: #4CAF50;
+                    border: none;
+                    border-radius: 15px;
+                    box-shadow: 0 9px #999;
+                }
+
+                button:hover {background-color: #3e8e41}
+
+                button:active {
+                    background-color: #3e8e41;
+                    box-shadow: 0 5px #666;
+                    transform: translateY(4px);
+                }
+                                            
+    </style>           
+</head>
+<body>
+ 
+    <h1 style="text-align:center;font-size:50px;">Session Storage and Local Storage Testing</h1>
+
+    <div class="storage">
+        
+        <h3>Create Session Storage items</h3>
+
+        <button onclick="createItems()">Create Session storage items</button>
+
+        <h3>Remove Session Storage Items</h3>
+
+        <p>Click the button to delete the items:</p>
+
+        <button onclick="deleteItems()">Delete Session storage items</button>
+
+        <h3>Display Session Storage Items</h3> 
+
+        <p>Click the button to display all items:</p>
+
+        <button onclick="displayItems()">Display Session storage items</button>
+
+        <p id="demo"></p>
+
+    </div>
+
+    <div class="storage">
+        
+        <h3>Create Local Storage Items</h3>
+
+        <button onclick="createItemsLocal()">Create local storage items</button>
+
+        <h3>Remove Local Storage Items</h3>
+
+        <p>Click the button to delete the items:</p>
+
+        <button onclick="deleteItemsLocal()">Delete Local Storage items</button>
+
+        <h3>Display Local Storage Items</h3>
+
+        <p>Click the button to display all Local Storage items:</p>
+
+        <button onclick="displayItemsLocal()">Display Local Storage items</button>
+
+        <p id="demoLocal"></p>
+
+    </div>
+
+<script>
+
+    var a=0;
+        
+    function createItems() {
+        if (a==0) {
+            sessionStorage.clear();
+            a++;
+        }
+        sessionStorage.setItem("mytime", Date.now());
+        sessionStorage.setItem("myname", "Miller");
+        sessionStorage.setItem("myage", 25);
+    }
+
+    function deleteItems() {
+        sessionStorage.clear();
+        document.getElementById("demo").innerHTML = " ";
+    }
+
+    function displayItems() {
+        var i;
+        if (a==0) {
+            sessionStorage.clear();
+            a++;
+        }
+        document.getElementById("demo").innerHTML = "";
+        for (i = 0; i < sessionStorage.length; i++) {
+            x = sessionStorage.key(i);
+            y = sessionStorage.getItem(x);
+            document.getElementById("demo").innerHTML += x + " : " + y + "<br>";
+        }
+    }
+
+    function createItemsLocal() {
+        localStorage.setItem("mytime", Date.now());
+        localStorage.setItem("myname", "John");
+        localStorage.setItem("myage", 36);
+    }
+
+    function deleteItemsLocal() {
+        localStorage.clear();
+        document.getElementById("demoLocal").innerHTML = " ";
+    }
+
+    function displayItemsLocal() {
+        var i;
+        document.getElementById("demoLocal").innerHTML = "";
+        for (i = 0; i < localStorage.length; i++) {
+            x = localStorage.key(i);
+            y = localStorage.getItem(x);
+            document.getElementById("demoLocal").innerHTML += x + " : " + y + "<br>";
+        }
+    }
+    
+</script>
+
+</body>
+</html>
